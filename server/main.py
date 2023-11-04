@@ -1,18 +1,19 @@
 from flask import Flask, request, jsonify, make_response
 import json
-from openaimsg import *
+from chatgpt import *
 
 app = Flask(__name__)
 # app.secret_key = FLASK_SECRET_KEY
 
 @app.route('/', methods=['GET'])
 def test():
-    return "testing"
+    userprompt = "Why are we even here?"
+    return callToOpenAI(userprompt)
 
 @app.route('/', methods=['POST'])
 def send_msg():
     usermsg = request.get_json()
-    airesponse = CallToOpenAI()
+    airesponse = callToOpenAI(usermsg)
     res = make_response(airesponse)
     res.mimetype = 'application/json'
     res.status_code = 200
