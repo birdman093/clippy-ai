@@ -248,7 +248,7 @@ def query_chat_gpt(window, input_string):
     input_string = window.MyTextBox.Text
 
     if input_string == "enter prompt...":
-        x=('Message', 'Query submitted')
+        x=('Error', 'Must customize input query')
         state.data.append(x)
         window.update_state(state)
         return
@@ -271,7 +271,9 @@ def query_chat_gpt(window, input_string):
         json_data = '{{"client": "{0}. {1}."}}'.format(input_string, context)
         data = Encoding.UTF8.GetBytes(json_data)
         client.Headers.Add("Content-Type", "application/json; charset=utf-8")
-        print("Sending data to server: {}".format(json_data))  # Check the JSON structure
+        
+        state.data.append("Info", "Sending data to server: {0}".format(json_data))  # Check the JSON structure
+        window.update_state(state)
 
         try:
             responseBytes = client.UploadData(url, "POST", data)
