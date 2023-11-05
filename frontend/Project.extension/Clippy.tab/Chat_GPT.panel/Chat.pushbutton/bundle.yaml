@@ -1,14 +1,14 @@
 # bundle title
-title: "Sync\nData"
+title: "Chat"
 
 # bundle tooltip
-tooltip: Synchronizes the parameter data between Area objects, PDSO objects, and Program Mass objects. Active doc must be Project type to activate.
+tooltip: Some helpful hover text
 
 # bundle help url
 help_url: "https://www.youtube.com/watch?v=H7b8hjHbauE&t=8s&list=PLc_1PNcpnV57FWI6G8Cd09umHpSOzvamf"
 
 # bundle author
-author: BBB DCT
+author: Clippy AI at AEC Tech
 
 context: doc-project
 
