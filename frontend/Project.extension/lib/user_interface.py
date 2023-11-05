@@ -31,6 +31,7 @@ from pyrevit import UI
 from pyrevit import script
 
 import rpw
+import os
 
 from custom_functions import clean_code_snippet, clean_response_string
 
@@ -214,7 +215,8 @@ class CustomWindow(forms.WPFWindow):
         #update debug html
         temphtml_path = os.path.join(self.current_dir, 'temp.html')
         self.output.save_contents(temphtml_path)
-        self.DebugDisplay.Source=(temphtml_path)
+        htmlContent = Read_file_incurrent_directory_to_string(temphtml_path)    
+        self.DebugDisplay.NavigateToString(htmlContent)
 
         ds = self.state.data
         
@@ -248,6 +250,16 @@ class Custom_Window_State():
 # ----------------------------
 # Functions called by UI buttons
 # ----------------------------
+
+def Read_file_incurrent_directory_to_string(file_path):
+     try:
+          with open(file_path, 'r') as file:
+               html_code = file.read()
+          return html_code
+     
+     except Exception as e:
+        print ("Error reading file: {e}")
+        return None
 
 def query_chat_gpt(window, input_string):
     
