@@ -6,29 +6,54 @@
         Width="900"
         x:Uid="ClippyAIWindow"
         >
-    
-    <ScrollViewer Margin="0,10,0,0">
-        <StackPanel>
-            <!-- HEADER -->
-            <Grid Margin="10" >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="3*" />
-                </Grid.ColumnDefinitions>
-     
-            <StackPanel Grid.Column="0">
-                <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="enter prompt..." VerticalAlignment="Top"  FontSize="14" FontFamily="Calibri"/>
-                <Button x:Name="button" Content="Submit" HorizontalAlignment="Left" Height="25"  VerticalAlignment="Top" Width="75"/>
-                <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="250" TextWrapping="Wrap" VerticalAlignment="Top" Width="450" FontFamily="Calibri" FontSize="14" Background="#FFE6E6E6"/>
-            </StackPanel>
+
+    <TabControl>
+        <TabItem>
+
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <Ellipse Width="15" Height="15" Fill="#3275a8"/>
+                    <TextBlock>Main UI</TextBlock>
+                </StackPanel>
+            </TabItem.Header>
             
-            <StackPanel Grid.Column="1">
-                <WebBrowser x:Name="clippy_gif" Height="400" Source = "https://i.makeagif.com/media/7-14-2017/bHLoEO.gif"/>
+            <ScrollViewer Margin="0,10,0,0">
+            <StackPanel>
+                <!-- HEADER -->
+                <Grid Margin="10" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="3*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0">
+                        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="enter prompt..." VerticalAlignment="Top"  FontSize="14" FontFamily="Calibri"/>
+                        <Button x:Name="button" Content="Submit" HorizontalAlignment="Left" Height="25"  VerticalAlignment="Top" Width="75"/>
+                        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="250" TextWrapping="Wrap" VerticalAlignment="Top" Width="450" FontFamily="Calibri" FontSize="14" Background="#FFE6E6E6"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1">
+                        <WebBrowser x:Name="clippy_gif" Height="400" Source = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXFydGM2cXJlZHh4emx5amc3enhzYWozNXB[…]9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/jWFI2h2nMXhZ4WiL0B/giphy.gif"/>
+                    </StackPanel>
+
+                </Grid>
             </StackPanel>
+        
+        </ScrollViewer>
+    </TabItem>
 
-            </Grid>
-        </StackPanel>
+    <TabItem>
 
-    </ScrollViewer>
+        <TabItem.Header>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                    <Ellipse Width="15" Height="15" Fill="#a85d32"/>
+                    <TextBlock>Debug Menu</TextBlock>
+            </StackPanel>
+        </TabItem.Header>
 
+            <WebBrowser x:Name="DebugDisplay" Source="C:\Users\13679\source\repos\clippy-ai\server\contextprompt.txt"/>
+
+        </TabItem>
+
+    </TabControl>
 </Window>

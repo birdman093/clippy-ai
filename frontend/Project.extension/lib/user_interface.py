@@ -148,7 +148,7 @@ class CustomWindow(forms.WPFWindow):
             print(path_to_asset)
 
         return None
-
+    
     def update_state(self, new_state):
         self.logger.warning("New state set...")
 
