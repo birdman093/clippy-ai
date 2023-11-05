@@ -167,8 +167,7 @@ class CustomWindow(forms.WPFWindow):
         print("New state set...")
 
         self.state = new_state
-        #update main display 
-        self.myTextBlock.
+
         # Convert
         self.render_custom_ui()
         
@@ -189,8 +188,8 @@ class CustomWindow(forms.WPFWindow):
 
         # Update what the user sees
         formatted_display = '\n'.join(output_messages)
-        
-        #print(formatted_display)
+
+        print(formatted_display)
         self.myTextBlock.Text = formatted_display
 
         #self.ui_test_result.Text = ds["foo"]
@@ -199,7 +198,10 @@ class CustomWindow(forms.WPFWindow):
     # UI Functionality - Button Controllers
     # ------------------
     def click_submit(self, sender, e):
+        print('Click hitting')
         x=('Click hitting')
+        print(x)
+        print(self.state)['data']
         self.state['data'].append(x)
         self.update_state(self.state)
         
@@ -211,6 +213,7 @@ class CustomWindow(forms.WPFWindow):
 class Custom_Window_State():
     def __init__(self):
         self.data = []
+        
 
 
 # ----------------------------
