@@ -115,7 +115,8 @@ class CustomWindow(forms.WPFWindow):
 
         # Fix WPF Resource Dictionary - Not needed
         #self.resolve_wpf_resource()
-
+        self.current_dir = os.path.dirname(__file__)
+        self.output = script.get_output()
         self.logger = script.get_logger()
 
     def setup(self):
@@ -195,7 +196,7 @@ class CustomWindow(forms.WPFWindow):
         return None
     
     def update_state(self, new_state):
-        print("New state set...")
+        #print("New state set...")
 
         self.state = new_state
         #update main display 
@@ -210,6 +211,11 @@ class CustomWindow(forms.WPFWindow):
     # View updaters - Create UI text based on data within this instance
     # ------------------
     def render_custom_ui(self):
+        #update debug html
+        temphtml_path = os.path.join(self.current_dir, 'temp.html')
+        self.output.save_contents(temphtml_path)
+        self.DebugDisplay.Source=(temphtml_path)
+
         ds = self.state.data
         
         output_messages = []
