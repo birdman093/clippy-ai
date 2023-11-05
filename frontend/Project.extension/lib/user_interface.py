@@ -17,7 +17,7 @@ from System.Windows.Media.Imaging import BitmapImage
 from System.Windows.Media.Animation import DiscreteObjectKeyFrame
 from System.Windows.Controls import Image
 from System.Windows import ResourceDictionary
-from System import Uri
+from System import Uri, UriKind
 
 from System import String
 from System.Net import WebClient, WebRequest
@@ -149,34 +149,42 @@ class CustomWindow(forms.WPFWindow):
 
         for gif in gifs:
             folder_path = os.path.join(dir_path, gif["folder"])
-            animation_keyframe_collection_name = getattr(self, gif["xaml_name"])
-            #self.set_image_source(wpf_img_element, path_to_asset)
-        
-        
-        try:
-            animation_keyframe_collection = self.FindName("clippy_blink_animation")
-            animation_keyframes = animation_keyframe_collection.KeyFrames
+            animation_keyframe_collection_name = gif["xaml_name"]
+            
+            try:
+                animation_keyframe_collection = self.FindName(animation_keyframe_collection_name)
+                animation_keyframes = animation_keyframe_collection.KeyFrames
 
-            for keyframe in animation_keyframes:
-                print(type(keyframe))
-                if type(keyframe) == DiscreteObjectKeyFrame:
-                    hopefully_bitmap = keyframe.Value
-                    print(type(hopefully_bitmap))
-                    if type(hopefully_bitmap) == BitmapImage:
-                        initial_source = hopefully_bitmap.UriSource
-                        filename, file_extension = os.path.splitext(initial_source)
-                        BitmapImage.UriSource(os.path.join(dir_path, "assets/clippy_blink", filename + file_extension))
-        
-        except Exception as error:
-            # handle the exception
-            print("An exception occurred:", error) # An exception occurred: division by zero
-        
-        else:
-            print("Nothing went wrong")
-            self.logger.warning("All good")
+                for keyframe in animation_keyframes:
+                    print(type(keyframe))
+                    if type(keyframe) == DiscreteObjectKeyFrame:
+                        hopefully_bitmap = keyframe.Value
+                        print(type(hopefully_bitmap))
+                        if type(hopefully_bitmap) == BitmapImage:
+                            initial_source = hopefully_bitmap.UriSource
+                            
+                            #end_bits = initial_source.AbsoluteUri.split('/lib/')[1]
+                            end_bits_two = str(initial_source.AbsolutePath).split('/lib/')[1]
 
-
-
+                            # https://learn.microsoft.com/en-us/dotnet/api/system.windows.media.imaging.bitmapimage.urisource?view=windowsdesktop-7.0#system-windows-media-imaging-bitmapimage-urisource
+                            my_new_uri = os.path.join(dir_path, end_bits_two)
+                            
+                            bi = BitmapImage()
+                            bi.BeginInit()
+                            bi.UriSource = Uri(my_new_uri, UriKind.RelativeOrAbsolute)
+                            bi.EndInit()
+                            
+                            keyframe.Value = bi
+                            #print(my_new_uri)
+                            #BitmapImage.UriSource = my_new_uri
+            
+            except Exception as error:
+                # handle the exception
+                print("An exception occurred:", error) # An exception occurred: division by zero
+            
+            else:
+                print("Nothing went wrong")
+                self.logger.warning("All good")
 
         return None
 
