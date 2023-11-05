@@ -49,15 +49,19 @@ def main(input_string):
             clean_code = clean_code_snippet(responseString)
             print("Code response: ", clean_code)
             exec(clean_code)
-            break
+            break  # Exit the loop if exec is successful
         except Exception as e:
-            response_exception = clean_response_string(e)
+            response_exception = str(e)  # Assuming you want to convert the exception to a string
             print(response_exception)
             context = "Consider this error: {}.".format(response_exception)
             input_string = "{} {}".format(input_string, context)
             context_data.increment_counter()
             print(context_data.counter)
-            main(input_string)
+            if context_data.counter >= max_attempts:
+                print("Maximum attempts reached. Exiting.")
+                break  # Exit the loop if max attempts have been reached
+            main(input_string) 
+
 
 
 # Create an instance of ContextData
