@@ -2,8 +2,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         Title="PyRevit - Clippy"
-        Height="450" 
-        Width="900"
+        Height="500" 
+        Width="800"
         x:Uid="ClippyAIWindow"
         >
     <Window.Resources>
@@ -15,7 +15,7 @@
         <SolidColorBrush x:Key="Accent2" Color="#56748d"/>
     </Window.Resources>
     <TabControl>
-        <TabItem>
+        <TabItem Background="{StaticResource Neutral}">
 
             <TabItem.Header>
                 <StackPanel Orientation="Horizontal" Margin="5">
@@ -23,30 +23,45 @@
                     <TextBlock>Main UI</TextBlock>
                 </StackPanel>
             </TabItem.Header>
-            
-            <ScrollViewer Margin="0,10,0,0">
-            <StackPanel>
+             
+            <ScrollViewer Margin="0,10,0,0" >
                 <!-- HEADER -->
-                <Grid Margin="10" >
+                <Grid Margin="20" >
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="8*" />
+                        <ColumnDefinition Width="5*" />
                     </Grid.ColumnDefinitions>
 
-                    <StackPanel Grid.Column="0">
-                        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="enter prompt..." VerticalAlignment="Top"  FontSize="14" FontFamily="Calibri"/>
-                        <Button x:Name="button" Content="Submit" HorizontalAlignment="Left" Height="25"  VerticalAlignment="Top" Width="75"/>
-                        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="250" TextWrapping="Wrap" VerticalAlignment="Top" Width="450" FontFamily="Calibri" FontSize="14" Background="#FFE6E6E6"/>
-                    </StackPanel>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="8*"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox x:Name="context_toggle" Grid.Column="0">
+                            <TextBlock Text="In Context" />
+                        </CheckBox>
+                        <Slider x:Name="max_try" Grid.Column="1"/>
+                        <TextBlock Text="Max Tries" Grid.Column="2"/>
+                    </Grid>
+                    <TextBlock x:Name="textBlock" Grid.Row="1" Grid.Column="0" 
+                                Margin="5"  TextWrapping="Wrap"  FontFamily="Calibri" FontSize="14" Background="{StaticResource Neutral2}"/>
+                    <TextBox x:Name="textBox" Grid.Row="2" Grid.Column="0" 
+                                Margin="5" TextWrapping="Wrap" Text="enter prompt..."  FontSize="14" FontFamily="Calibri" Background="{StaticResource Neutral2}"/>
 
-                    <StackPanel Grid.Column="1">
-                        <WebBrowser x:Name="clippy_gif" Height="400" Source = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXFydGM2cXJlZHh4emx5amc3enhzYWozNXB[…]9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/jWFI2h2nMXhZ4WiL0B/giphy.gif"/>
-                    </StackPanel>
+                    <WebBrowser x:Name="clippy_gif" Grid.Row="1" Grid.Column="1"
+                                Margin="5"  Source = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXFydGM2cXJlZHh4emx5amc3enhzYWozNXB[…]9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/jWFI2h2nMXhZ4WiL0B/giphy.gif"/>
+                    <Button x:Name="button" Content="Submit" Grid.Row="2" Grid.Column="1"
+                                Margin="5" />
 
                 </Grid>
-            </StackPanel>
-        
-        </ScrollViewer>
+
+            </ScrollViewer>
     </TabItem>
 
     <TabItem>
