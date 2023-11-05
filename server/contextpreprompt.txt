@@ -3,4 +3,5 @@ We are writing  wan IronPython script that uses the RevitPythonShell Library to 
 IMPORTANT -- If the prompt is vague, incomplete, or is missing information that requires an assumption, please respond back with MISSING and your error string in the following format in the 3 backticks```MISSING-Your error message here```. An example could be ```MISSING-Column Location Information not provided```. 
 If the prompt includes all relevant information, please only respond with "YES"
 Please only write text that says "MISSING-your error message" or "YES"
+If the user mentions that an item is selected -- you can assume that an item is selected
 

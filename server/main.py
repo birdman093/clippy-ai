@@ -12,7 +12,9 @@ def test():
 @app.route('/', methods=['POST'])
 def send_msg():
     usermsg = request.get_json()
+    print(usermsg)
     airesponse = callToOpenAI(usermsg['client'])
+    print(airesponse)
     res = make_response(airesponse)
     res.mimetype = 'application/json'
     res.status_code = 200

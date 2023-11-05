@@ -228,8 +228,7 @@ class CustomWindow(forms.WPFWindow):
     # UI Functionality - Button Controllers
     # ------------------
     def click_submit(self, sender, e):
-        input_string=""
-        custom_event.raise_event(query_chat_gpt, self, input_string)
+        custom_event.raise_event(query_chat_gpt, self)
 
 
 class Custom_Window_State():
@@ -242,10 +241,11 @@ class Custom_Window_State():
 # Functions called by UI buttons
 # ----------------------------
 
-def query_chat_gpt(window, input_string):    
+def query_chat_gpt(window):    
     state = Custom_Window_State()
 
     input_string = window.MyTextBox.Text
+
 
     if input_string == "enter prompt...":
         x=('Error', 'Must customize input query')
@@ -259,7 +259,7 @@ def query_chat_gpt(window, input_string):
     window.update_state(state)
 
 
-    max_attempts = 10
+    max_attempts = 3
     counter = 1
     context = ""
     url = 'http://127.0.0.1:8080/'
@@ -272,16 +272,17 @@ def query_chat_gpt(window, input_string):
         data = Encoding.UTF8.GetBytes(json_data)
         client.Headers.Add("Content-Type", "application/json; charset=utf-8")
         
-        state.data.append("Info", "Sending data to server: {0}".format(json_data))  # Check the JSON structure
-        window.update_state(state)
+        print("Info", "Sending data to server: {0}".format(json_data))  # Check the JSON structure
+        #window.update_state(state)
 
         try:
             responseBytes = client.UploadData(url, "POST", data)
             responseString = Encoding.UTF8.GetString(responseBytes)
             if "MISSING" in responseString:
-                x = ('missing', responseString.split("MISSING-")[1])
+                x = ('missing', responseString.split("-")[1])
                 state.data.append(x)
                 window.update_state(state)
+                return # unsuccessful
 
             clean_code = clean_code_snippet(responseString)
             print("Code response: ", clean_code)
