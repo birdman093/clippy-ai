@@ -1,4 +1,7 @@
-
+openai.env
+myenv
+__pycache__
 clippy-ai/bin/
 clippy-ai/obj/
 .vs/clippy-ai/v16/.suo
+chatgptapikey.env
