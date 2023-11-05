@@ -6,13 +6,20 @@
         Width="900"
         x:Uid="ClippyAIWindow"
         >
-
+    <Window.Resources>
+        <SolidColorBrush x:Key="Pop" Color="#F4C22A"/>
+        <SolidColorBrush x:Key="Pop2" Color="#D1102B"/>
+        <SolidColorBrush x:Key="Neutral" Color="#E4DCD6"/>
+        <SolidColorBrush x:Key="Neutral2" Color="#D9C7A0"/>
+        <SolidColorBrush x:Key="Accent" Color="#F29F05"/>
+        <SolidColorBrush x:Key="Accent2" Color="#56748d"/>
+    </Window.Resources>
     <TabControl>
         <TabItem>
 
             <TabItem.Header>
                 <StackPanel Orientation="Horizontal" Margin="5">
-                    <Ellipse Width="15" Height="15" Fill="#3275a8"/>
+                    <Ellipse Width="15" Height="15" Fill="{StaticResource Pop}"/>
                     <TextBlock>Main UI</TextBlock>
                 </StackPanel>
             </TabItem.Header>
@@ -46,7 +53,7 @@
 
         <TabItem.Header>
             <StackPanel Orientation="Horizontal" Margin="5">
-                    <Ellipse Width="15" Height="15" Fill="#a85d32"/>
+                    <Ellipse Width="15" Height="15" Fill="{StaticResource Pop2}"/>
                     <TextBlock>Debug Menu</TextBlock>
             </StackPanel>
         </TabItem.Header>
