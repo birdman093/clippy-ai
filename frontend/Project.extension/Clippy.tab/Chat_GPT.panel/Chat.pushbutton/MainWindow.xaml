@@ -49,7 +49,7 @@
                         <Slider x:Name="max_try" Grid.Column="1"/>
                         <TextBlock Text="Max Tries" Grid.Column="2"/>
                     </Grid>
-                    <TextBlock x:Name="textBlock" Grid.Row="1" Grid.Column="0" 
+                    <TextBlock x:Name="myTextBlock" Grid.Row="1" Grid.Column="0" 
                                 Margin="5"  TextWrapping="Wrap"  FontFamily="Calibri" FontSize="14" Background="{StaticResource Neutral2}"/>
                     <TextBox x:Name="textBox" Grid.Row="2" Grid.Column="0" 
                                 Margin="5" TextWrapping="Wrap" Text="enter prompt..."  FontSize="14" FontFamily="Calibri" Background="{StaticResource Neutral2}"/>
