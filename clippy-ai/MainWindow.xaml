@@ -7,7 +7,10 @@
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid Margin="626,275,0.2,-0.2">
-        <Image gif:ImageBehavior.AnimatedSource="C:\Users\abawiskar\Documents\GitHub\clippy-ai\clippy-ai\clippy-windows-xp.gif" />
+    <Grid Margin="626,340,0.2,-0.2">
+        <Image gif:ImageBehavior.AnimatedSource="C:\Users\abawiskar\Documents\GitHub\clippy-ai\clippy-ai\ClippyConstruction.gif" Margin="0,-265,0,118" />
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="25" Margin="-570,15,0,0" TextWrapping="Wrap" Text="enter prompt..." VerticalAlignment="Top" Width="450" FontSize="14" FontFamily="Calibri"/>
+        <Button x:Name="button" Content="Submit" HorizontalAlignment="Left" Height="25" Margin="-105,15,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="250" Margin="-570,-255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="450" FontFamily="Calibri" FontSize="14" Background="#FFE6E6E6"/>
     </Grid>
 </Window>
