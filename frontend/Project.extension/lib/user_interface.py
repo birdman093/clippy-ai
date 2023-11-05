@@ -201,20 +201,18 @@ class CustomWindow(forms.WPFWindow):
         #update main display 
         #self.myTextBlock.
         # Convert
-        #self.render_custom_ui()
+        self.render_custom_ui()
         
         # Update the UI
-        self.show()
+        #self.show()
 
     # ------------------
     # View updaters - Create UI text based on data within this instance
     # ------------------
-    def render_custom_ui(self):
-        ds = self.state.data
-        
+    def render_custom_ui(self):      
         output_messages = []
 
-        for item in ds:
+        for item in self.state.data:
             (status, message) = item
             output_messages.append(message)
 
@@ -222,7 +220,8 @@ class CustomWindow(forms.WPFWindow):
         formatted_display = '\n'.join(output_messages)
 
         print(formatted_display)
-        self.myTextBlock.Text = formatted_display
+        self.FindName("myTextBlock").Text = formatted_display
+
 
 
     # ------------------
@@ -243,46 +242,22 @@ class Custom_Window_State():
 # Functions called by UI buttons
 # ----------------------------
 
-def query_chat_gpt(window, input_string):
-    
+def query_chat_gpt(window, input_string):    
     state = Custom_Window_State()
 
- 
     input_string = window.MyTextBox.Text
 
-    print(input_string)
-       
     if input_string == "enter prompt...":
-        window.FindName("myTextBlock").Text = "CANT USE DEFAULT STRING"
+        x=('Message', 'Query submitted')
+        state.data.append(x)
+        window.update_state(state)
         return
 
-    window.FindName("myTextBlock").Text = "HELLO"
  
-    try:
-        x=('Message', 'Query hitting')
-        print(x)
-        state.data.append(x)
-        
-        output = []
-        for status, message in state.data:
-            output.append(message)
-            formatted_display = '\n'.join(output)
+    x=('Message', 'Query submitted')
+    state.data.append(x)
+    window.update_state(state)
 
-            window.FindName("myTextBlock").Text = formatted_display
-        
-        
-        #window.update_state(state)
-        
-        print(state)
-
-
-        x = ('successful', 'Test')
-        state['data'].append(x)
-        window.update_state(state)
-
-    except Exception as error:
-        # handle the exception
-        window.logger.error("An exception occurred:", error) # An exception occurred: division by zero
 
     max_attempts = 10
     counter = 1
@@ -303,7 +278,7 @@ def query_chat_gpt(window, input_string):
             responseString = Encoding.UTF8.GetString(responseBytes)
             if "MISSING" in responseString:
                 x = ('missing', responseString.split("MISSING-")[1])
-                state['data'].append(x)
+                state.data.append(x)
                 window.update_state(state)
 
             clean_code = clean_code_snippet(responseString)
@@ -311,7 +286,7 @@ def query_chat_gpt(window, input_string):
             exec(clean_code)
 
             x = ('successful', '')
-            state['data'].append(x)
+            state.data.append(x)
             window.update_state(state)
             return  # Successful execution, exit the loop
         
@@ -323,30 +298,30 @@ def query_chat_gpt(window, input_string):
                     errorMessage = reader.ReadToEnd()
                     response_exception = clean_response_string(errorMessage)
                     x = ('exception', "Server error response: {0}".format(response_exception))
-                    state['data'].append(x)
+                    state.data.append(x)
                     window.update_state(state)
             else:
                 x = ('exception', "WebException without response: : {0}".format(webEx.Message))
-                state['data'].append(x)
+                state.data.append(x)
                 window.update_state(state)
         
         except Exception as e:
             response_exception = clean_response_string(str(e))
             print("Exception: ", response_exception)
             x = ('exception', "Exception: {0}".format(response_exception))
-            state['data'].append(x)
+            state.data.append(x)
             window.update_state(state)
         
         finally:
             context = "Consider this error: {0}".format(response_exception)
             counter += 1
             x = ('attempt', "Attempt: {0}".format(counter))
-            state['data'].append(x)
+            state.data.append(x)
             window.update_state(state)
             if counter > max_attempts:
                 print("Maximum attempts reached. Exiting.")
                 x = ('failure', "Maximum attempts reached. Exiting.")
-                state['data'].append(x)
+                state.data.append(x)
                 break  # Ensure to break out of the loop
 
         
