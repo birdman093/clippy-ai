@@ -8,25 +8,23 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Matt\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\13679\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Matt\\source\\repos\\clippy-ai\\frontend\\Project.extension\\Clippy.tab\\Program Data Silo Workflows.panel\\DSO.pushbutton\\wpfEditProject\\wpfEditProject\\wpfEditProject.csproj",
+      "projectUniqueName": "C:\\Users\\13679\\source\\repos\\clippy-ai\\frontend\\Project.extension\\Clippy.tab\\Program Data Silo Workflows.panel\\DSO.pushbutton\\wpfEditProject\\wpfEditProject\\wpfEditProject.csproj",
       "projectName": "wpfEditProject",
-      "projectPath": "C:\\Users\\Matt\\source\\repos\\clippy-ai\\frontend\\Project.extension\\Clippy.tab\\Program Data Silo Workflows.panel\\DSO.pushbutton\\wpfEditProject\\wpfEditProject\\wpfEditProject.csproj",
-      "packagesPath": "C:\\Users\\Matt\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Matt\\source\\repos\\clippy-ai\\frontend\\Project.extension\\Clippy.tab\\Program Data Silo Workflows.panel\\DSO.pushbutton\\wpfEditProject\\wpfEditProject\\obj\\",
+      "projectPath": "C:\\Users\\13679\\source\\repos\\clippy-ai\\frontend\\Project.extension\\Clippy.tab\\Program Data Silo Workflows.panel\\DSO.pushbutton\\wpfEditProject\\wpfEditProject\\wpfEditProject.csproj",
+      "packagesPath": "C:\\Users\\13679\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\13679\\source\\repos\\clippy-ai\\frontend\\Project.extension\\Clippy.tab\\Program Data Silo Workflows.panel\\DSO.pushbutton\\wpfEditProject\\wpfEditProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Matt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\13679\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -35,7 +33,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -72,7 +69,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
       }
     }
   }
