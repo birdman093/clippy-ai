@@ -3,11 +3,14 @@ from System import Array, Byte
 from System.Net import WebClient, WebRequest, WebException
 from System.Text import Encoding
 from System.IO import StreamReader
+from System.Threading import Thread
 from helper import clean_code_snippet, ContextData
 
 # Add references to the .NET assemblies needed
 clr.AddReference('System')
 clr.AddReference('System.Net')
+clr.AddReference('System.Threading')
+
 
 # Instantiate ContextData
 context_data = ContextData()
@@ -25,13 +28,14 @@ def main(input_string, context_data):
     max_attempts = 10
     context_data.counter = 1
     url = 'http://127.0.0.1:8080/'
+    delay_between_requests = 10000  # Delay in milliseconds
 
     # Create a WebClient instance
     client = WebClient()
     client.Headers.Add("Content-Type", "application/json; charset=utf-8")
 
     while context_data.counter <= max_attempts:
-        json_data = '{{"client": "{0}. {1}"}}'.format(input_string, context_data.context)
+        json_data = '{{"client": "{0}"}}'.format(input_string, context_data.context)
         bytes_data = Encoding.UTF8.GetBytes(json_data)
         print("Sending data to server: {}".format(json_data))  # Check the JSON structure
 
@@ -67,6 +71,8 @@ def main(input_string, context_data):
             if context_data.counter > max_attempts:
                 print("Maximum attempts reached. Exiting.")
                 break  # Ensure to break out of the loop
+            Thread.Sleep(delay_between_requests)  # Sleep before the next request
+
 
 # Call the main function with the input string and context data
 main(input_string, context_data)
