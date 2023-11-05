@@ -326,6 +326,7 @@ def query_chat_gpt(window):
 
             clean_code = clean_code_snippet(responseString)
             print("Code response: ", clean_code)
+            state.data.append("Code response: ", clean_code)
             exec(clean_code)
 
             x = ('successful', '')
