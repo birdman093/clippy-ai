@@ -1,6 +1,7 @@
 class ContextData:
     def __init__(self):
-        self._context = None
+        self._context = ""  # Notice the underscore, it denotes a private attribute
+        self._counter = 1
 
     @property
     def context(self):
@@ -9,7 +10,10 @@ class ContextData:
 
     @context.setter
     def context(self, value):
-        self._context = value
+        if isinstance(value, str):
+            self._context = value  # Set the private attribute, not the property itself
+        else:
+            raise ValueError("Context must be a string")
 
     @context.deleter
     def context(self):
@@ -18,18 +22,19 @@ class ContextData:
     @property
     def counter(self):
         """The counter property."""
-        return self.counter
+        return self._counter
 
     @counter.setter
     def counter(self, value):
         if isinstance(value, int) and value >= 0:
-            self.counter = value
+            self._counter = value  # Set the private attribute, not the property itself
         else:
             raise ValueError("Counter must be a non-negative integer")
 
     def increment_counter(self):
         """Increment the counter property by 1."""
-        self.counter += 1
+        self._counter += 1
+
 
 
 def clean_code_snippet(snippet):
