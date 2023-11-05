@@ -121,7 +121,7 @@ class CustomWindow(forms.WPFWindow):
         self.logger = script.get_logger()
 
     def setup(self):
-        self.resolve_images()
+        #self.resolve_images()
         # Fix linked image resources - Not needed
         #self.resolve_browser_paths()
         pass
