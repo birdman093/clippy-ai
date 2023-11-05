@@ -12,7 +12,7 @@ if __name__ == "__main__":
 
     # Look through the windows owned by the Revit window to try and find an instance of the custom UI window
     custom_ui_window = next(
-        (x for x in revit_window.OwnedWindows if x.Uid == "set_this_in_xaml"), None)
+        (x for x in revit_window.OwnedWindows if x.Uid == "ClippyAIWindow"), None)
 
     if custom_ui_window != None:
         # If the custom UI window is already opened, show it with .Activate()

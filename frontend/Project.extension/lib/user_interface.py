@@ -121,7 +121,7 @@ class CustomWindow(forms.WPFWindow):
         dir_path = os.path.dirname(__file__)
 
         images = [
-            {"xaml_name": "clippy_gif", "relative_path": "./assets/clippy_gif.png"},
+            {"xaml_name": "clippy_gif", "relative_path": "./assets/clippy_gif.gif"},
         ]
 
         for image in images:
