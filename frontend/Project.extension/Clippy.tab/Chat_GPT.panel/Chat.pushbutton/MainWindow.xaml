@@ -7,13 +7,39 @@
         x:Uid="ClippyAIWindow"
         >
     <Window.Resources>
+        <!-- COLOR THEME -->
         <SolidColorBrush x:Key="Pop" Color="#F4C22A"/>
         <SolidColorBrush x:Key="Pop2" Color="#D1102B"/>
         <SolidColorBrush x:Key="Neutral" Color="#E4DCD6"/>
         <SolidColorBrush x:Key="Neutral2" Color="#D9C7A0"/>
         <SolidColorBrush x:Key="Accent" Color="#F29F05"/>
         <SolidColorBrush x:Key="Accent2" Color="#56748d"/>
+        
+        <Style TargetType="ScrollViewer">
+            <Setter Property="Background" Value="{StaticResource Neutral}"/>
+        </Style>
+        
+        <Style TargetType="ScrollBar">
+            <Setter Property="Background" Value="{StaticResource Neutral}"/>
+        </Style>
+
+        <Style TargetType="Border">
+            <Setter Property="BorderBrush" Value="#56748d"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="Margin" Value="1"/>
+            <Setter Property="Background" Value="{StaticResource Neutral}"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="LightGray" Direction="315" ShadowDepth="5" BlurRadius="10"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
+
+    <Window.Background>
+        <SolidColorBrush Color="#E4DCD6" />
+    </Window.Background>
     <TabControl>
         <TabItem Background="{StaticResource Neutral}">
 
@@ -24,7 +50,7 @@
                 </StackPanel>
             </TabItem.Header>
              
-            <ScrollViewer Margin="0,10,0,0" >
+            <ScrollViewer >
                 <!-- HEADER -->
                 <Grid Margin="20" >
                     <Grid.ColumnDefinitions>
@@ -37,27 +63,42 @@
                         <RowDefinition Height="8*"/>
                         <RowDefinition Height="2*"/>
                     </Grid.RowDefinitions>
-                    <Grid Margin="5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="1*"/>
-                        </Grid.ColumnDefinitions>
-                        <CheckBox x:Name="context_toggle" Grid.Column="0">
-                            <TextBlock Text="In Context" />
-                        </CheckBox>
-                        <Slider x:Name="max_try" Grid.Column="1"/>
-                        <TextBlock Text="Max Tries" Grid.Column="2"/>
-                    </Grid>
-                    <TextBlock x:Name="myTextBlock" Grid.Row="1" Grid.Column="0" 
-                                Margin="5"  TextWrapping="Wrap"  FontFamily="Calibri" FontSize="14" Background="{StaticResource Neutral2}"/>
-                    <TextBox x:Name="textBox" Grid.Row="2" Grid.Column="0" 
-                                Margin="5" TextWrapping="Wrap" Text="enter prompt..."  FontSize="14" FontFamily="Calibri" Background="{StaticResource Neutral2}"/>
+                    
+                    <Border Grid.Row="0" Grid.Column="0">
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <CheckBox x:Name="context_toggle" Grid.Column="0">
+                                <TextBlock Text="In Context" />
+                            </CheckBox>
+                            <Slider x:Name="max_try" Grid.Column="1"/>
+                            <TextBlock Text="Max Tries" Grid.Column="2"/>
+                        </Grid>
+                    </Border>
 
-                    <WebBrowser x:Name="clippy_gif" Grid.Row="1" Grid.Column="1"
-                                Margin="5"  Source = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXFydGM2cXJlZHh4emx5amc3enhzYWozNXB[…]9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/jWFI2h2nMXhZ4WiL0B/giphy.gif"/>
-                    <Button x:Name="button" Content="Submit" Grid.Row="2" Grid.Column="1"
-                                Margin="5" Click="click_submit" />
+                    <Border Grid.Row="1" Grid.Column="0">
+                        <TextBlock x:Name="myTextBlock" Grid.Row="1" Grid.Column="0" 
+                                Margin="10"  TextWrapping="Wrap"  FontFamily="Calibri" FontSize="14" Background="{StaticResource Neutral2}"/>
+                    </Border>
+                    <Border Grid.Row="2" Grid.Column="0">
+                        <TextBox x:Name="textBox" Grid.Row="2" Grid.Column="0" 
+                                Margin="10" TextWrapping="Wrap" Text="enter prompt..."  FontSize="14" FontFamily="Calibri" Background="{StaticResource Neutral2}"/>
+                    </Border>
+                    
+                    <Border Grid.Row="1" Grid.Column="1">
+                        <WebBrowser x:Name="clippy_gif" Grid.Row="1" Grid.Column="1"
+                                Margin="10"  Source = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXFydGM2cXJlZHh4emx5amc3enhzYWozNXB[…]9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/jWFI2h2nMXhZ4WiL0B/giphy.gif"/>
+                    </Border>
+
+                    <Button x:Name="button" Grid.Row="2" Grid.Column="1"
+                                Margin="10" Click="click_submit">
+                        <TextBox Grid.Row="2" Grid.Column="0" 
+                                Margin="10" Text="SUBMIT"  FontSize="36" FontFamily="Calibri"/>
+                    </Button>
+
 
                 </Grid>
 

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CLIPPY_VS", "CLIPPY_VS\CLIPPY_VS.csproj", "{F4499844-97EE-4BEC-9515-7DD4E4FD88AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4499844-97EE-4BEC-9515-7DD4E4FD88AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4499844-97EE-4BEC-9515-7DD4E4FD88AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4499844-97EE-4BEC-9515-7DD4E4FD88AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4499844-97EE-4BEC-9515-7DD4E4FD88AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B9363FE7-B1F3-4A2C-830E-97C48AA1054C}
+	EndGlobalSection
+EndGlobal
