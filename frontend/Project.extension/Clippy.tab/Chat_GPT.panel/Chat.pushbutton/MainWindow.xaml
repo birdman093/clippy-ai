@@ -88,7 +88,7 @@
                                 Margin="2"  TextWrapping="Wrap"  FontFamily="Calibri" FontSize="14" Background="{StaticResource Neutral2}"/>
                     </Border>
                     <Border Grid.Row="2" Grid.Column="0">
-                        <TextBox x:Name="textBox" Grid.Row="2" Grid.Column="0" 
+                        <TextBox x:Name="MyTextBox" Grid.Row="2" Grid.Column="0" 
                                 Margin="10" TextWrapping="Wrap" Text="enter prompt..."  FontSize="14" FontFamily="Calibri" Background="{StaticResource Neutral2}"/>
                     </Border>
                     
