@@ -4,4 +4,6 @@ Don't clarify the language you're using.
 Write a Python script that using the RevitPythonShell Library to complete the user input request in Autodesk Revit 2021. 
 Don't include newline formatting. 
 If the query is a question, make sure to include code to print the answer to the console in the end.
- Use only basic string concatenation when needed
+Use only basic string concatenation when needed
+Don't use DisplayUnitType
+Don't use BuiltInParameter

@@ -11,7 +11,7 @@ clr.AddReference('System')
 clr.AddReference('System.Net')
 clr.AddReference('System.Threading')
 
-input_string = 'From the selected elements, list their lengths by family name'
+input_string = 'Change all the room names to different, funny, and confusing names'
 
 
 def clean_response_string(response):
@@ -53,9 +53,10 @@ def main(input_string):
                 print("WebException without response: ", webEx.Message)
         except Exception as e:
             response_exception = clean_response_string(str(e))
+            code_for_debug = clean_response_string(str(clean_code))
             print("Exception: ", response_exception)
-        finally:
             context = "Consider this error: {}".format(response_exception)
+        finally:
             counter += 1
             print("Attempt: {}".format(counter))
             if counter > max_attempts:
