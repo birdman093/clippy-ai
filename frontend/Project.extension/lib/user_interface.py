@@ -104,7 +104,7 @@ class CustomWindow(forms.WPFWindow):
 
     def setup(self):
         # Fix linked image resources
-        self.resolve_browser_paths()
+        #self.resolve_browser_paths()
 
     def resolve_wpf_resource(self):
         """Function to add WPF resources."""
@@ -145,7 +145,7 @@ class CustomWindow(forms.WPFWindow):
 
             wpf_img_element.Source = path_to_asset
             print(path_to_asset)
-            
+
         return None
 
     def update_state(self, new_state):
