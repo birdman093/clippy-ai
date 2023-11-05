@@ -1,0 +1,81 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        Title="PyRevit - Clippy"
+        Height="500" 
+        Width="800"
+        x:Uid="ClippyAIWindow"
+        >
+    <Window.Resources>
+        <SolidColorBrush x:Key="Pop" Color="#F4C22A"/>
+        <SolidColorBrush x:Key="Pop2" Color="#D1102B"/>
+        <SolidColorBrush x:Key="Neutral" Color="#E4DCD6"/>
+        <SolidColorBrush x:Key="Neutral2" Color="#D9C7A0"/>
+        <SolidColorBrush x:Key="Accent" Color="#F29F05"/>
+        <SolidColorBrush x:Key="Accent2" Color="#56748d"/>
+    </Window.Resources>
+    <TabControl>
+        <TabItem Background="{StaticResource Neutral}">
+
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <Ellipse Width="15" Height="15" Fill="{StaticResource Pop}"/>
+                    <TextBlock>Main UI</TextBlock>
+                </StackPanel>
+            </TabItem.Header>
+             
+            <ScrollViewer Margin="0,10,0,0" >
+                <!-- HEADER -->
+                <Grid Margin="20" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="8*" />
+                        <ColumnDefinition Width="5*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="8*"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox x:Name="context_toggle" Grid.Column="0">
+                            <TextBlock Text="In Context" />
+                        </CheckBox>
+                        <Slider x:Name="max_try" Grid.Column="1"/>
+                        <TextBlock Text="Max Tries" Grid.Column="2"/>
+                    </Grid>
+                    <TextBlock x:Name="textBlock" Grid.Row="1" Grid.Column="0" 
+                                Margin="5"  TextWrapping="Wrap"  FontFamily="Calibri" FontSize="14" Background="{StaticResource Neutral2}"/>
+                    <TextBox x:Name="textBox" Grid.Row="2" Grid.Column="0" 
+                                Margin="5" TextWrapping="Wrap" Text="enter prompt..."  FontSize="14" FontFamily="Calibri" Background="{StaticResource Neutral2}"/>
+
+                    <WebBrowser x:Name="clippy_gif" Grid.Row="1" Grid.Column="1"
+                                Margin="5"  Source = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXFydGM2cXJlZHh4emx5amc3enhzYWozNXB[…]9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/jWFI2h2nMXhZ4WiL0B/giphy.gif"/>
+                    <Button x:Name="button" Content="Submit" Grid.Row="2" Grid.Column="1"
+                                Margin="5" />
+
+                </Grid>
+
+            </ScrollViewer>
+    </TabItem>
+
+    <TabItem>
+
+        <TabItem.Header>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                    <Ellipse Width="15" Height="15" Fill="{StaticResource Pop2}"/>
+                    <TextBlock>Debug Menu</TextBlock>
+            </StackPanel>
+        </TabItem.Header>
+
+            <WebBrowser x:Name="DebugDisplay" Source="C:\Users\13679\source\repos\clippy-ai\server\contextprompt.txt"/>
+
+        </TabItem>
+
+    </TabControl>
+</Window>

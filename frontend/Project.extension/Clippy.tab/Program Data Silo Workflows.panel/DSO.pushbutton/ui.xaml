@@ -6,7 +6,7 @@
         MaxWidth="700"
         MinWidth="400"
         Width="490"
-        x:Uid="set_this_in_xaml"
+        x:Uid="ClippyAIWindow"
         >
     <ScrollViewer Margin="0,10,0,0">
         <StackPanel>
@@ -16,9 +16,10 @@
                     <ColumnDefinition Width="7*" />
                     <ColumnDefinition Width="1*" />
                 </Grid.ColumnDefinitions>
-              
             </Grid>   
-            
+            <StackPanel>
+                <Image x:Name="clippy_gif" gif:ImageBehavior.AnimatedSource="C:\Users\abawiskar\Documents\GitHub\clippy-ai\clippy-ai\clippy-windows-xp.gif" />
+            </StackPanel>
         </StackPanel>
         
     </ScrollViewer>
