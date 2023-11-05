@@ -1,0 +1,18 @@
+{
+    "builtin": "False",
+    "default_enabled": "True",
+    "type": "extension",
+    "rocket_mode_compatible": "True",
+    "name": "BBBCustom",
+    "description": "Development Tools for pyRevit",
+    "author": "Ehsan Iran-Nejad",
+    "author_profile": "https://google.com",
+    "url": "https://google.com",
+    "website": "https://google.com",
+    "image": "",
+    "templates": {
+        "author": "Ehsan Iran-Nejad",
+        "docpath": "https://www.youtube.com/watch?v="
+    },
+    "dependencies": []
+}

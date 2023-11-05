@@ -1,0 +1,18 @@
+# bundle title
+title: "Sync\nData"
+
+# bundle tooltip
+tooltip: Synchronizes the parameter data between Area objects, PDSO objects, and Program Mass objects. Active doc must be Project type to activate.
+
+# bundle help url
+help_url: "https://www.youtube.com/watch?v=H7b8hjHbauE&t=8s&list=PLc_1PNcpnV57FWI6G8Cd09umHpSOzvamf"
+
+# bundle author
+author: BBB DCT
+
+context: doc-project
+
+engine:
+  clean: false
+  full_frame: false
+  persistent: true
