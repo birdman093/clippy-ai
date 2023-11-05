@@ -84,8 +84,10 @@
                     </Border>
 
                     <Border Grid.Row="1" Grid.Column="0">
-                        <TextBlock x:Name="myTextBlock" Grid.Row="1" Grid.Column="0" 
+                        <ScrollViewer >
+                            <TextBlock x:Name="myTextBlock" Grid.Row="1" Grid.Column="0" 
                                 Margin="2"  TextWrapping="Wrap"  FontFamily="Calibri" FontSize="14" Background="{StaticResource Neutral2}"/>
+                        </ScrollViewer>
                     </Border>
                     <Border Grid.Row="2" Grid.Column="0">
                         <TextBox x:Name="MyTextBox" Grid.Row="2" Grid.Column="0" 
