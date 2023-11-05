@@ -1,153 +1,68 @@
-#from pyrevit import script
-#from pyrevit.revit import ui
-#from user_interface import PdsoControlWindow
+import clr
+from helper import clean_code_snippet, ContextData
+clr.AddReference('System')
+clr.AddReference('System.Net')
 
-#import pdso_classes
-#import ui_functions
+from System import String
+from System.Net import WebClient, WebRequest
+from System.Text import Encoding
+from System.IO import StreamReader
 
-#from pyrevit.coreutils import Timer
-
-import pdso_fx
-import user_interface
-from pyrevit import script
-
-logger = script.get_logger()
-
-logger.warning("Running checks")
-passed_checks = True
-
-state =user_interface.PdsoControlWindow_State()
-
-if (passed_checks == True):
-    (passed_checks, result_state) = pdso_fx.basic_setup_check_for_area_schemes(state)
-    state = result_state
-logger.warning("1ST CHECK DONE")
-
-if(passed_checks == True):
-    print("2nd check starting")
-    (passed_checks, result_state) = pdso_fx.basic_setup_check_areas(state)
-    state = result_state
-logger.warning("2ND CHECK DONE")
-
-if(passed_checks == True):
-    (passed_checks, result_state) = pdso_fx.basic_setup_check_area_parameters(state)
-    state = result_state
-logger.warning("3RD CHECK DONE")
-
-if(passed_checks == True):
-    (passed_checks, result_state) = pdso_fx.basic_setup_check_pdsos(state)
-    state = result_state
-logger.warning("4TH CHECK DONE")
-
-logger.warning("Check complete")
-'''
-# importing the module
-from collections import defaultdict
-
-from attrdict import AttrDict, AttrMap, AttrDefault
-from attrdict.merge import merge
+input_string = 'From the selected elements, list their lengths by family name'
 
 
-# AttrDict Requires full frame
-__fullframeengine__ = True
-'''
+def main(input_string):
+    # Create an instance of ContextData
+    context_data = ContextData()
 
-'''
-# creating the first dictionary
-a = {'foo': 'bar', 'alpha': {'beta': 'a', 'a': 'a'}}
- 
-# creating the second dictionary
-b = {'lorem': 'ipsum', 'alpha': {'bravo': 'b', 'a': 'b'}}
- 
-# combining the dictionaries, right overwrites left
-c = merge(AttrDict(a), AttrDict(b))
- 
-print(type(c))
-print(c)
-'''
+    # Set the context
+    context_data.context = ""
 
-#attr = defaultdict(dict)
-#attr['test']['foo'] = "Mr"
+    # The server's URL
+    url = ' http://127.0.0.1:8080/'
 
-'''
-data = AttrMap({
-    'test':{
-        "foo" : "Miss",
-        "bar" : "Broskie"
-    },
-    "basic_setup_checks" : {
-        "area_schemes_requested" : ["Mary", "Mack"],    # list of... strings ?
-        "area_schemes_found": ["All", "Dressed", "In", "Black"],         # list of... strings?
-        "count_of_areas_found" : 0,      # int
-        "area_parameters_missing" : ["With", "Silver", "Buttons"],   # list of... strings?
-        "pdso_family_name" : "All Down Her Back",          # string
-        "pdso_family_is_loaded" : True,     # bool
-        "count_of_pdso_instances" : 0,   # int
-        "pdso_parameters_missing" : ["And", "An", "Itsie", "Spider"]    # list of... strings?
-    },
-    "area_checks":{},
-    "pdso_checks":{}
-})
+    # The string you want to send
 
-new_data = AttrMap({
-    'test':{},
-    "basic_setup_checks" : {},
-    "area_checks":{},
-    "pdso_checks":{}
-})
+    # Create a web client
+    client = WebClient()
 
-new_data.test.foo = "Working?"
+    # Set the header so the server knows to expect JSON
+    client.Headers.Add("Content-Type", "application/json")
 
-merged_data = data + new_data
+    # Serialize the data to a JSON string
+    data = Encoding.UTF8.GetBytes(String.Format('{{"client": "{0}"}}', input_string))
 
-print(merged_data)
-print("\n\n\n")
-'''
-
-'''
-timer = Timer()
-
-# SLOWER
-timer.restart()
-data = data + new_data
-time_a = timer.get_time()
-print("Time a: " + str(time_a))
-
-pp = pprint.PrettyPrinter(indent=4)
-pp.pprint(data)
-print("\n\n\n")
-#Time a: 0.027717590332
+    # Send the POST request
+    for i in range(5):
+        try:
+            responseBytes = client.UploadData(url, "POST", data)
+            responseString = Encoding.UTF8.GetString(responseBytes)
+            clean_code = clean_code_snippet(responseString)
+            print("Code response:/n", clean_code)
+            exec(clean_code)
+        except Exception as e:
+            print(e)
+            main()
+        pass
 
 
-# FASTER
-timer.restart()
-data_b = data + new_data
-time_b = timer.get_time()
-print("Time b: " + str(time_b))
+# Initialize a counter for the number of attempts
+attempts = 0
 
-pp.pprint(data_b)
-print("\n\n\n")
-#Time b: 0.000999450683594
-'''
+# Define the maximum number of attempts
+max_attempts = 5
 
+# Use a while loop to try the function up to max_attempts times
+while attempts < max_attempts:
+    try:
+        # Try to call the risky function
+        main()
+        print("Function succeeded.")
+        break  # Exit the loop if the function succeeds
+    except Exception as e:
+        # If an exception occurs, print the error and increment the attempt counter
+        print("Attempt {} failed with error: {}".format(attempts + 1, e))
+        attempts += 1
+        if attempts == max_attempts:
+            print("Function failed after maximum number of attempts.")
 
-
-'''
-#This does not work. Cannot add entries like this
-more_data = AttrMap()
-more_data.test = {}
-more_data.test.foo = "Something"
-print (more_data)
-print("\n\n\n")
-
-#Or like this
-diff_data = AttrDefault({})
-diff_data.test.foo = "Something else"
-
-a = attrdict.AttrMap({'foo': 'bar'})
-print(a["foo"])
-
-
-
-print (c.test.foo)
-'''

@@ -1,9 +1,1 @@
-Please write a Python script that using the RevitPythonShell Library to complete the user input request
-in AutoDesk Revit 2023. If the input request cannot be completed, please respond back with the 
-following in 3 backticks ```NO-ERRORGIF```. Also please, use language similar to that of Clippy, 
-from Microsoft Word.  Please only write python code and do not provide any other text in your response.
-Please do not include the following lines of code that are following in 3 backticks
-```
-
-```
-
+Please respond only with python code. Do not provide any other text in your response, no backticks or formatting. Don't clarify the language you're using. Write a Python script that using the RevitPythonShell Library to complete the user input request in Autodesk Revit 2021. If the input request cannot be completed, please respond back with the following string: ```NO-ERRORGIF```. Don't include newline formatting. If the query is a question, make sure to include code to print the answer to the console in the end.
