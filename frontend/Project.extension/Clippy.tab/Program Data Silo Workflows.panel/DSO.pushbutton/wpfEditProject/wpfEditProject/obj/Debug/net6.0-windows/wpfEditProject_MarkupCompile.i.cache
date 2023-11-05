@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\13679\source\repos\clippy-ai\frontend\Project.extension\Clippy.tab\Program Data Silo Workflows.panel\DSO.pushbutton\wpfEditProject\wpfEditProject\App.xaml
-1786374593
+2-2101547362
 
 5-903430838
 194-1976662911
-..\..\MainWindow.xaml;
+MainWindow.xaml;..\..\MainWindow.xaml;
 
 False
 

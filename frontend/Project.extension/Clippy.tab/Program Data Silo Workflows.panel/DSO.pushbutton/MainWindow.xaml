@@ -2,10 +2,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         Title="PyRevit - Clippy"
-        Height="925" 
-        MaxWidth="700"
-        MinWidth="400"
-        Width="490"
+        Height="450" 
+        Width="900"
         x:Uid="ClippyAIWindow"
         >
     
@@ -14,13 +12,21 @@
             <!-- HEADER -->
             <Grid Margin="10" >
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="7*" />
                     <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="3*" />
                 </Grid.ColumnDefinitions>
-            </Grid>
-            <StackPanel Grid.Column="1">
-                <WebBrowser x:Name="clippy_gif" Height="600" Source = "https://i.makeagif.com/media/7-14-2017/bHLoEO.gif"/>
+     
+            <StackPanel Grid.Column="0">
+                <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="enter prompt..." VerticalAlignment="Top"  FontSize="14" FontFamily="Calibri"/>
+                <Button x:Name="button" Content="Submit" HorizontalAlignment="Left" Height="25"  VerticalAlignment="Top" Width="75"/>
+                <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="250" TextWrapping="Wrap" VerticalAlignment="Top" Width="450" FontFamily="Calibri" FontSize="14" Background="#FFE6E6E6"/>
             </StackPanel>
+            
+            <StackPanel Grid.Column="1">
+                <WebBrowser x:Name="clippy_gif" Height="400" Source = "https://i.makeagif.com/media/7-14-2017/bHLoEO.gif"/>
+            </StackPanel>
+
+            </Grid>
         </StackPanel>
 
     </ScrollViewer>

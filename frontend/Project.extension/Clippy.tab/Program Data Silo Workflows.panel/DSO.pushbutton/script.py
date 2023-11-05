@@ -2,6 +2,7 @@
 from pyrevit import script
 from pyrevit.revit import ui
 from user_interface import CustomWindow
+import time
 
 if __name__ == "__main__":
 
@@ -21,5 +22,8 @@ if __name__ == "__main__":
     else:
         # If the custom UI window is currently open, create a new instance
         custom_ui_window = script.load_ui(CustomWindow(), 'MainWindow.xaml')
-        custom_ui_window.show(modal=True)
+        custom_ui_window.show()
+
         custom_ui_window.Owner = revit_window
+
+    
