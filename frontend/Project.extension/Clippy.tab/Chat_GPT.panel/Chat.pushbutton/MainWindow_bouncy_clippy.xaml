@@ -22,7 +22,7 @@
                     <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="250" TextWrapping="Wrap" VerticalAlignment="Top" Width="450" FontFamily="Calibri" FontSize="14" Background="#FFE6E6E6"/>
                 </StackPanel>
             
-                <StackPanel Grid.Column="1" GRid.Row="1">
+                <StackPanel Grid.Column="1" >
                     <Image Name="clippy_blink" Width="50">
                         <Image.Triggers>
                             <EventTrigger RoutedEvent="Image.Loaded" >
