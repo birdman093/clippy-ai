@@ -5,7 +5,7 @@
         Height="925" 
         MaxWidth="700"
         MinWidth="400"
-        Width="490"
+        Width="600"
         x:Uid="ClippyAIWindow"
         >
     
@@ -14,13 +14,21 @@
             <!-- HEADER -->
             <Grid Margin="10" >
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="3*" />
                     <ColumnDefinition Width="1*" />
                 </Grid.ColumnDefinitions>
-            </Grid>
+     
+            <StackPanel Grid.Column="0">
+                <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="25" Margin="-570,15,0,0" TextWrapping="Wrap" Text="enter prompt..." VerticalAlignment="Top" Width="450" FontSize="14" FontFamily="Calibri"/>
+                <Button x:Name="button" Content="Submit" HorizontalAlignment="Left" Height="25" Margin="-105,15,0,0" VerticalAlignment="Top" Width="75"/>
+                <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="250" Margin="-570,-255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="450" FontFamily="Calibri" FontSize="14" Background="#FFE6E6E6"/>
+            </StackPanel>
+            
             <StackPanel Grid.Column="1">
                 <WebBrowser x:Name="clippy_gif" Height="600" Source = "https://i.makeagif.com/media/7-14-2017/bHLoEO.gif"/>
             </StackPanel>
+
+            </Grid>
         </StackPanel>
 
     </ScrollViewer>
