@@ -28,7 +28,5 @@ def setOpenAiKey():
     openai.api_key  = secret.strip()
 
 def getSoftwarePrompt():
-    return "Answer all questions as if you are a Pirate who is trying to use Autodesk Revit"
-
-if __name__ == '__main__':
-    callToOpenAI("Whats it all been about")
+    with open("contextprompt.txt", "r") as f:
+        return f.read()

@@ -7,13 +7,12 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def test():
-    userprompt = "Why are we even here?"
-    return callToOpenAI(userprompt)
+    return "Please use Post"
 
 @app.route('/', methods=['POST'])
 def send_msg():
     usermsg = request.get_json()
-    airesponse = callToOpenAI(usermsg)
+    airesponse = callToOpenAI(usermsg['client'])
     res = make_response(airesponse)
     res.mimetype = 'application/json'
     res.status_code = 200
