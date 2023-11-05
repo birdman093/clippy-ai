@@ -13,6 +13,8 @@ clr.AddReference('System.Windows.Forms')
 
 from Autodesk.Revit.Exceptions import InvalidOperationException
 from System.Windows.Controls.Primitives import BulletDecorator
+from System.Windows.Media.Imaging import BitmapImage
+from System.Windows.Media.Animation import DiscreteObjectKeyFrame
 from System.Windows.Controls import Image
 from System.Windows import ResourceDictionary
 from System import Uri
@@ -117,6 +119,7 @@ class CustomWindow(forms.WPFWindow):
         self.logger = script.get_logger()
 
     def setup(self):
+        #self.resolve_images()
         # Fix linked image resources - Not needed
         #self.resolve_browser_paths()
         pass
@@ -134,7 +137,8 @@ class CustomWindow(forms.WPFWindow):
     def resolve_images(self):
         """Add assets folder too"""
         dir_path = os.path.dirname(__file__)
-
+        
+        '''
         images = [
             {"xaml_name": "clippy_gif", "relative_path": "./assets/clippy_gif.gif"},
         ]
@@ -143,6 +147,33 @@ class CustomWindow(forms.WPFWindow):
             path_to_asset = os.path.join(dir_path, image["relative_path"])
             wpf_img_element = getattr(self, image["xaml_name"])
             self.set_image_source(wpf_img_element, path_to_asset)
+        '''
+        
+        try:
+            #xyx = window.foobar.LogicalChildren()
+            animation_keyframe_collection = self.FindName("clippy_blink_animation")
+            animation_keyframes = animation_keyframe_collection.Children
+
+            for keyframe in animation_keyframes:
+                print(type(keyframe))
+                if type(keyframe) == DiscreteObjectKeyFrame:
+                    hopefully_bitmap = keyframe.Value
+                    print(type(hopefully_bitmap))
+                    if type(hopefully_bitmap) == BitmapImage:
+                        initial_source = hopefully_bitmap.UriSource
+                        filename, file_extension = os.path.splitext(initial_source)
+                        BitmapImage.UriSource(os.path.join(dir_path, "assets/clippy_blink", filename + file_extension))
+        
+        except Exception as error:
+            # handle the exception
+            print("An exception occurred:", error) # An exception occurred: division by zero
+        
+        else:
+            print("Nothing went wrong")
+            self.logger.warning(abc)
+
+
+
 
         return None
 
@@ -200,8 +231,8 @@ class CustomWindow(forms.WPFWindow):
     def click_submit(self, sender, e):
         print('Click hitting')
         
-        input_string = 'From the selected elements, list their lengths by family name'
-
+        input_string = self.MyTextBox.Text#'From the selected elements, list their lengths by family name'
+        print(input_string)
         custom_event.raise_event(query_chat_gpt, self, input_string)
 
 
@@ -213,10 +244,6 @@ class Custom_Window_State():
 # ----------------------------
 # Functions called by UI buttons
 # ----------------------------
-
-input_string = 'From the selected elements, list their lengths by family name'
-
-
 
 def query_chat_gpt(window, input_string):
     print('Query hitting')
