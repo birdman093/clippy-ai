@@ -272,7 +272,7 @@ def query_chat_gpt(window, input_string):
         data = Encoding.UTF8.GetBytes(json_data)
         client.Headers.Add("Content-Type", "application/json; charset=utf-8")
         
-        state.data.append("Info", "Sending data to server: {0}".format(json_data))  # Check the JSON structure
+        print("Sending data to server: {0}".format(json_data))  # Check the JSON structure
         window.update_state(state)
 
         try:
