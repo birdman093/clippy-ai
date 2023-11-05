@@ -72,19 +72,23 @@
                                 <ColumnDefinition Width="1*"/>
                             </Grid.ColumnDefinitions>
                             <CheckBox x:Name="context_toggle" Grid.Column="0">
-                                <TextBlock Text="In Context" />
+                                <TextBlock Text="In Context" FontSize="14"/>
                             </CheckBox>
                             <Slider x:Name="max_try" Grid.Column="1"/>
-                            <TextBlock Text="Max Tries" Grid.Column="2"/>
+                            <TextBlock Text="Max Attempt" Grid.Column="2" FontSize="14"/>
                         </Grid>
+                    </Border>
+
+                    <Border Grid.Row="0" Grid.Column="1">
+                        <TextBlock x:Name="max_try_display" Text="00" FontSize="30" FontWeight="bold" Margin="10,5" Foreground="{StaticResource Pop}"/>
                     </Border>
 
                     <Border Grid.Row="1" Grid.Column="0">
                         <TextBlock x:Name="myTextBlock" Grid.Row="1" Grid.Column="0" 
-                                Margin="10"  TextWrapping="Wrap"  FontFamily="Calibri" FontSize="14" Background="{StaticResource Neutral2}"/>
+                                Margin="2"  TextWrapping="Wrap"  FontFamily="Calibri" FontSize="14" Background="{StaticResource Neutral2}"/>
                     </Border>
                     <Border Grid.Row="2" Grid.Column="0">
-                        <TextBox x:Name="textBox" Grid.Row="2" Grid.Column="0" 
+                        <TextBox x:Name="MyTextBox" Grid.Row="2" Grid.Column="0" 
                                 Margin="10" TextWrapping="Wrap" Text="enter prompt..."  FontSize="14" FontFamily="Calibri" Background="{StaticResource Neutral2}"/>
                     </Border>
                     
@@ -95,8 +99,8 @@
 
                     <Button x:Name="button" Grid.Row="2" Grid.Column="1"
                                 Margin="10" Click="click_submit">
-                        <TextBox Grid.Row="2" Grid.Column="0" 
-                                Margin="10" Text="SUBMIT"  FontSize="36" FontFamily="Calibri"/>
+                        <TextBlock Grid.Row="2" Grid.Column="0" 
+                                Margin="10" Text="SUBMIT"  FontSize="36" FontFamily="Calibri" FontWeight="bold" Foreground="{StaticResource Pop}"/>
                     </Button>
 
 

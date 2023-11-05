@@ -198,10 +198,11 @@ class CustomWindow(forms.WPFWindow):
         print("New state set...")
 
         self.state = new_state
-
+        #update main display 
+        self.myTextBlock.
         # Convert
         self.render_custom_ui()
-
+        
         # Update the UI
         self.show()
 
@@ -229,7 +230,9 @@ class CustomWindow(forms.WPFWindow):
     # UI Functionality - Button Controllers
     # ------------------
     def click_submit(self, sender, e):
-        print('Click hitting')
+        x=('Click hitting')
+        self.state['data'].append(x)
+        self.update_state(self.state)
         
         input_string = self.MyTextBox.Text#'From the selected elements, list their lengths by family name'
         print(input_string)
@@ -246,9 +249,11 @@ class Custom_Window_State():
 # ----------------------------
 
 def query_chat_gpt(window, input_string):
-    print('Query hitting')
+    x=('Query hitting')
 
     state = window.state
+    state['data'].append(x)
+    window.update_state(state)
 
     try:
         x = ('successful', 'Test')
