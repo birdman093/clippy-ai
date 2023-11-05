@@ -22,7 +22,7 @@ if __name__ == "__main__":
     else:
         # If the custom UI window is currently open, create a new instance
         custom_ui_window = script.load_ui(CustomWindow(), 'MainWindow.xaml')
-        # custom_ui_window = script.load_ui(CustomWindow(), 'MainWindow_bouncy_clippy.xaml')
+        #custom_ui_window = script.load_ui(CustomWindow(), 'MainWindow_bouncy_clippy.xaml')
 
         custom_ui_window.show()
 

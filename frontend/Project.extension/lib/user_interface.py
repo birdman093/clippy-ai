@@ -140,21 +140,22 @@ class CustomWindow(forms.WPFWindow):
         """Add assets folder too"""
         dir_path = os.path.dirname(__file__)
         
-        '''
-        images = [
-            {"xaml_name": "clippy_gif", "relative_path": "./assets/clippy_gif.gif"},
+        
+        gifs = [
+            {"xaml_name": "clippy_blink_animation", "folder": "assets/clippy_blink"},
+            {"xaml_name": "clippy_blink_animation", "folder": "assets/clippy_blink"},
+            {"xaml_name": "clippy_blink_animation", "folder": "assets/clippy_blink"},
         ]
 
-        for image in images:
-            path_to_asset = os.path.join(dir_path, image["relative_path"])
-            wpf_img_element = getattr(self, image["xaml_name"])
-            self.set_image_source(wpf_img_element, path_to_asset)
-        '''
+        for gif in gifs:
+            folder_path = os.path.join(dir_path, gif["folder"])
+            animation_keyframe_collection_name = getattr(self, gif["xaml_name"])
+            #self.set_image_source(wpf_img_element, path_to_asset)
+        
         
         try:
-            #xyx = window.foobar.LogicalChildren()
             animation_keyframe_collection = self.FindName("clippy_blink_animation")
-            animation_keyframes = animation_keyframe_collection.Children
+            animation_keyframes = animation_keyframe_collection.KeyFrames
 
             for keyframe in animation_keyframes:
                 print(type(keyframe))
@@ -172,7 +173,7 @@ class CustomWindow(forms.WPFWindow):
         
         else:
             print("Nothing went wrong")
-            self.logger.warning(abc)
+            self.logger.warning("All good")
 
 
 
@@ -201,9 +202,8 @@ class CustomWindow(forms.WPFWindow):
 
         self.state = new_state
         #update main display 
-        #self.myTextBlock.
-        # Convert
-        #self.render_custom_ui()
+
+        self.render_custom_ui()
         
         # Update the UI
         self.show()
@@ -292,7 +292,7 @@ def query_chat_gpt(window):
 
 
         x = ('successful', 'Test')
-        state['data'].append(x)
+        state.data.append(x)
         window.update_state(state)
 
     except Exception as error:
@@ -329,7 +329,7 @@ def query_chat_gpt(window):
             exec(clean_code)
 
             x = ('successful', '')
-            state['data'].append(x)
+            state.data.append(x)
             window.update_state(state)
             return  # Successful execution, exit the loop
         
@@ -341,30 +341,30 @@ def query_chat_gpt(window):
                     errorMessage = reader.ReadToEnd()
                     response_exception = clean_response_string(errorMessage)
                     x = ('exception', "Server error response: {0}".format(response_exception))
-                    state['data'].append(x)
+                    state.data.append(x)
                     window.update_state(state)
             else:
                 x = ('exception', "WebException without response: : {0}".format(webEx.Message))
-                state['data'].append(x)
+                state.data.append(x)
                 window.update_state(state)
         
         except Exception as e:
             response_exception = clean_response_string(str(e))
             print("Exception: ", response_exception)
             x = ('exception', "Exception: {0}".format(response_exception))
-            state['data'].append(x)
+            state.data.append(x)
             window.update_state(state)
         
         finally:
             context = "Consider this error: {0}".format(response_exception)
             counter += 1
             x = ('attempt', "Attempt: {0}".format(counter))
-            state['data'].append(x)
+            state.data.append(x)
             window.update_state(state)
             if counter > max_attempts:
                 print("Maximum attempts reached. Exiting.")
                 x = ('failure', "Maximum attempts reached. Exiting.")
-                state['data'].append(x)
+                state.data.append(x)
                 break  # Ensure to break out of the loop
 
         
