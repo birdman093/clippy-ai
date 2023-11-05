@@ -118,7 +118,7 @@
             </StackPanel>
         </TabItem.Header>
 
-            <!--<WebBrowser x:Name="DebugDisplay" Source="C:\Users\13679\source\repos\clippy-ai\server\contextprompt.txt"/>-->
+            <WebBrowser x:Name="DebugDisplay"/>
 
         </TabItem>
 
