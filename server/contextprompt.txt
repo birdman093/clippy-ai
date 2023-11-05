@@ -11,6 +11,8 @@ If the query is a question, make sure to include code to print the answer to the
 IronPython does not support f-strings, or str.format, use only basic string concatenation
 Use this line of code as is, if needed, uidoc = __revit__.ActiveUIDocument
 Use this line of code as is, if needed, selection = uidoc.Selection.GetElementIds()
+Don't use DisplayUnitType
+Don't use BuiltInParameter
 ```
 Please do not import any libraries in your response beyond those in the following 3 backticks
 ```
