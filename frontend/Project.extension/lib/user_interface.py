@@ -173,8 +173,8 @@ class CustomWindow(forms.WPFWindow):
     def tab_next(self, sender, args):
         self.tabControl.SelectedIndex = self.tabControl.SelectedIndex + 1
 
-    def click_test(self, sender, e):
-        custom_event.raise_event(run_checks, self, "String arg")
+    def click_submit(self, sender, e):
+        custom_event.raise_event(run_main, self, "String arg")
 
 
 class Custom_Window_State():
@@ -189,7 +189,7 @@ class Custom_Window_State():
 # ----------------------------
 # Functions called by UI buttons
 # ----------------------------
-def run_checks(window, text_string_prefix):
+def run_main(window, prompt_string):
     # EACH CHECK CAN MAP TO UPDATING ONE DATA VALUE?
     window.logger.warning("Running checks")
     passed_checks = True

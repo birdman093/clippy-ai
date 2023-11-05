@@ -57,7 +57,7 @@
                     <WebBrowser x:Name="clippy_gif" Grid.Row="1" Grid.Column="1"
                                 Margin="5"  Source = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXFydGM2cXJlZHh4emx5amc3enhzYWozNXB[…]9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/jWFI2h2nMXhZ4WiL0B/giphy.gif"/>
                     <Button x:Name="button" Content="Submit" Grid.Row="2" Grid.Column="1"
-                                Margin="5" />
+                                Margin="5" Click="click_submit" />
 
                 </Grid>
 
