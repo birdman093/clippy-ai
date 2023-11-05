@@ -220,8 +220,8 @@ class CustomWindow(forms.WPFWindow):
 
         # Update what the user sees
         formatted_display = '\n'.join(output_messages)
-        
-        #print(formatted_display)
+
+        print(formatted_display)
         self.myTextBlock.Text = formatted_display
 
 
@@ -236,6 +236,7 @@ class CustomWindow(forms.WPFWindow):
 class Custom_Window_State():
     def __init__(self):
         self.data = []
+        
 
 
 # ----------------------------
