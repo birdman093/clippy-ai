@@ -199,9 +199,9 @@ class CustomWindow(forms.WPFWindow):
 
         self.state = new_state
         #update main display 
-        self.myTextBlock.
+        #self.myTextBlock.
         # Convert
-        self.render_custom_ui()
+        #self.render_custom_ui()
         
         # Update the UI
         self.show()
@@ -224,18 +224,12 @@ class CustomWindow(forms.WPFWindow):
         #print(formatted_display)
         self.myTextBlock.Text = formatted_display
 
-        #self.ui_test_result.Text = ds["foo"]
 
     # ------------------
     # UI Functionality - Button Controllers
     # ------------------
     def click_submit(self, sender, e):
-        x=('Click hitting')
-        self.state['data'].append(x)
-        self.update_state(self.state)
-        
-        input_string = self.MyTextBox.Text#'From the selected elements, list their lengths by family name'
-        print(input_string)
+        input_string=""
         custom_event.raise_event(query_chat_gpt, self, input_string)
 
 
@@ -249,16 +243,42 @@ class Custom_Window_State():
 # ----------------------------
 
 def query_chat_gpt(window, input_string):
-    x=('Query hitting')
+    
+    state = Custom_Window_State()
 
-    state = window.state
-    state['data'].append(x)
-    window.update_state(state)
+ 
+    input_string = window.MyTextBox.Text
 
+    print(input_string)
+       
+    if input_string == "enter prompt...":
+        window.FindName("myTextBlock").Text = "CANT USE DEFAULT STRING"
+        return
+
+    window.FindName("myTextBlock").Text = "HELLO"
+ 
     try:
+        x=('Message', 'Query hitting')
+        print(x)
+        state.data.append(x)
+        
+        output = []
+        for status, message in state.data:
+            output.append(message)
+            formatted_display = '\n'.join(output)
+
+            window.FindName("myTextBlock").Text = formatted_display
+        
+        
+        #window.update_state(state)
+        
+        print(state)
+
+
         x = ('successful', 'Test')
         state['data'].append(x)
         window.update_state(state)
+
     except Exception as error:
         # handle the exception
         window.logger.error("An exception occurred:", error) # An exception occurred: division by zero
