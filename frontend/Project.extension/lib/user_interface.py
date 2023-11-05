@@ -104,7 +104,7 @@ class CustomWindow(forms.WPFWindow):
 
     def setup(self):
         # Fix linked image resources
-        self.resolve_images()
+        self.resolve_browser_paths()
 
     def resolve_wpf_resource(self):
         """Function to add WPF resources."""
@@ -128,6 +128,22 @@ class CustomWindow(forms.WPFWindow):
             path_to_asset = os.path.join("file:///", dir_path, image["relative_path"])
             wpf_img_element = getattr(self, image["xaml_name"])
             self.set_image_source(wpf_img_element, path_to_asset)
+
+        return None
+
+    def resolve_browser_paths(self):
+        """Add assets folder too"""
+        dir_path = os.path.dirname(__file__)
+
+        paths = [
+            {"xaml_name": "clippy_gif", "relative_path": "./assets/clippy_gif.gif"},
+        ]
+
+        for path in paths:
+            path_to_asset = os.path.join("file:///", dir_path, path["relative_path"])
+            wpf_img_element = getattr(self, path["xaml_name"])
+
+            wpf_img_element.Source = path_to_asset
 
         return None
 
