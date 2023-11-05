@@ -8,7 +8,7 @@ def callToOpenAI(userprompt):
 def test(userprompt: str):
     return collect_messages(userprompt)
 
-def get_completion_from_messages(messages, model="gpt-3.5-turbo", temperature=0):
+def get_completion_from_messages(messages, model="gpt-4", temperature=0):
     response = openai.ChatCompletion.create(
         model=model,
         messages=messages,
