@@ -144,7 +144,8 @@ class CustomWindow(forms.WPFWindow):
             wpf_img_element = getattr(self, path["xaml_name"])
 
             wpf_img_element.Source = path_to_asset
-
+            print(path_to_asset)
+            
         return None
 
     def update_state(self, new_state):
