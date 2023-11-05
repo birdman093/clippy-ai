@@ -1,0 +1,500 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        Title="PyRevit - Clippy"
+        Height="600" 
+        Width="800"
+        x:Uid="ClippyAIWindow"
+        >
+    
+    <ScrollViewer Margin="0,10,0,0">
+        <StackPanel>
+            <!-- HEADER -->
+            <Grid Margin="10" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+     
+                <StackPanel Grid.Column="0">
+                    <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Text="enter prompt..." VerticalAlignment="Top"  FontSize="14" FontFamily="Calibri"/>
+                    <Button x:Name="button" Content="Submit" HorizontalAlignment="Left" Height="25"  VerticalAlignment="Top" Width="75"/>
+                    <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="250" TextWrapping="Wrap" VerticalAlignment="Top" Width="450" FontFamily="Calibri" FontSize="14" Background="#FFE6E6E6"/>
+                </StackPanel>
+            
+                <StackPanel Grid.Column="1">
+                    <Image Name="clippy_blink">
+                        <Image.Triggers>
+                            <EventTrigger RoutedEvent="Image.Loaded" >
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames x:Name="clippy_blink_animation" Duration="0:0:4" Storyboard.TargetProperty="Source" RepeatBehavior="Forever">
+                                                <ObjectAnimationUsingKeyFrames.KeyFrames>
+
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_blink\frame_00_delay-2s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:2.0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_blink\frame_01_delay-0.01s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:2.01">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_blink\frame_02_delay-0.01s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:2.02">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_blink\frame_03_delay-0.01s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:2.03">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_blink\frame_04_delay-0.01s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:2.04">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_blink\frame_05_delay-0.01s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:2.05">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_blink\frame_06_delay-0.01s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:2.06">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_blink\frame_07_delay-0.01s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:2.07">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_blink\frame_08_delay-0.01s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:2.08">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_blink\frame_09_delay-0.01s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:2.09">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_blink\frame_10_delay-0.01s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:2.1">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_blink\frame_11_delay-0.01s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:2.11">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_blink\frame_12_delay-0.01s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:2.12">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_blink\frame_13_delay-0.01s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:2.13">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_blink\frame_14_delay-2s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames.KeyFrames>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+                        </Image.Triggers>
+                    </Image>
+
+                    <Image Name="clippy_excited">
+                        <Image.Triggers>
+                            <EventTrigger RoutedEvent="Image.Loaded" >
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="0:0:6" Storyboard.TargetProperty="Source" RepeatBehavior="Forever">
+                                                <ObjectAnimationUsingKeyFrames.KeyFrames>
+
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_00_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.03">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_01_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.06">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_02_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.09">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_03_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.12">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_04_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.15">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_05_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.18">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_06_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.21">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_07_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.24">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_08_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.27">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_09_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_10_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.33">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_11_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.36">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_12_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.39">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_13_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.42">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_14_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.45">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_15_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.48">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_16_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.51">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_17_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.54">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_18_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.57">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_19_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.6">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_20_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.63">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_21_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.66">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_22_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.69">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_23_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.72">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_24_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.75">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_25_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.78">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_26_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.81">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_27_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.84">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_28_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.87">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_29_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.9">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_30_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.93">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_31_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.96">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_32_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.99">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_33_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:1.02">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_34_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:1.05">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_35_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:1.08">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_36_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:1.11">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_37_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:1.14">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_38_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:1.17">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_39_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:1.2">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_40_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:1.23">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_41_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:1.26">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_42_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:1.29">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_43_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:1.32">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_44_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:1.35">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_45_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:1.38">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_46_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:1.41">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_47_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:1.44">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_48_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:1.47">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_49_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:1.5">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_50_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:1.53">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_51_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:1.56">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_52_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:1.59">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_53_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:1.62">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_54_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:1.65">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_excited\frame_55_delay-0.03s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    
+                                                </ObjectAnimationUsingKeyFrames.KeyFrames>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+                        </Image.Triggers>
+                    </Image>
+
+                    <Image Name="clippy_error">
+                        <Image.Triggers>
+                            <EventTrigger RoutedEvent="Image.Loaded" >
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="0:0:4" Storyboard.TargetProperty="Source" RepeatBehavior="Forever">
+                                                <ObjectAnimationUsingKeyFrames.KeyFrames>
+
+
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_error\frame_00_delay-0.2s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_error\frame_01_delay-0.2s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.4">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_error\frame_02_delay-0.2s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.6">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_error\frame_03_delay-0.2s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.8">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_error\frame_04_delay-0.2s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:1">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_error\frame_05_delay-0.2s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:1.2">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_error\frame_06_delay-0.2s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:1.4">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_error\frame_07_delay-0.2s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:1.6">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_error\frame_08_delay-0.2s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:1.8">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_error\frame_09_delay-0.2s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:2">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <BitmapImage UriSource="C:\Users\mbreau\source\repos\clippy-ai\frontend\Project.extension\lib\assets\clippy_error\frame_10_delay-0.2s.png" />
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+
+                                                </ObjectAnimationUsingKeyFrames.KeyFrames>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+                        </Image.Triggers>
+                    </Image>
+
+                </StackPanel>
+
+            </Grid>
+        </StackPanel>
+
+    </ScrollViewer>
+
+</Window>
