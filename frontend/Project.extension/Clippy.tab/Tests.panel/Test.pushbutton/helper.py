@@ -15,6 +15,22 @@ class ContextData:
     def context(self):
         self._context = None
 
+    @property
+    def counter(self):
+        """The counter property."""
+        return self.counter
+
+    @counter.setter
+    def counter(self, value):
+        if isinstance(value, int) and value >= 0:
+            self.counter = value
+        else:
+            raise ValueError("Counter must be a non-negative integer")
+
+    def increment_counter(self):
+        """Increment the counter property by 1."""
+        self.counter += 1
+
 
 def clean_code_snippet(snippet):
     # Split the snippet into lines
