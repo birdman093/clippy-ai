@@ -13,24 +13,25 @@ clr.AddReference('System.Threading')
 
 input_string = 'From the selected elements, list their lengths by family name'
 
+
 def clean_response_string(response):
     allowed_chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789- "
     cleaned_string = ''.join(c for c in response if c in allowed_chars)
     return cleaned_string
+
 
 def main(input_string):
     max_attempts = 10
     counter = 1
     context = ""
     url = 'http://127.0.0.1:8080/'
-    delay_between_requests = 10000  # Delay in milliseconds
 
     client = WebClient()
-    client.Headers.Add("Content-Type", "application/json; charset=utf-8")
 
     while counter <= max_attempts:
         json_data = '{{"client": "{0}. {1}."}}'.format(input_string, context)
         data = Encoding.UTF8.GetBytes(json_data)
+        client.Headers.Add("Content-Type", "application/json; charset=utf-8")
         print("Sending data to server: {}".format(json_data))  # Check the JSON structure
 
         try:
@@ -60,6 +61,6 @@ def main(input_string):
             if counter > max_attempts:
                 print("Maximum attempts reached. Exiting.")
                 break  # Ensure to break out of the loop
-            Thread.Sleep(delay_between_requests)  # Sleep before the next request
+
 
 main(input_string)
