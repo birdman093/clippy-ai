@@ -125,7 +125,7 @@ class CustomWindow(forms.WPFWindow):
         ]
 
         for image in images:
-            path_to_asset = os.path.join(dir_path, image["relative_path"])
+            path_to_asset = os.path.join("file:///", dir_path, image["relative_path"])
             wpf_img_element = getattr(self, image["xaml_name"])
             self.set_image_source(wpf_img_element, path_to_asset)
 
