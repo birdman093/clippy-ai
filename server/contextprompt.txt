@@ -13,6 +13,7 @@ Use this line of code as is, if needed, uidoc = __revit__.ActiveUIDocument
 Use this line of code as is, if needed, selection = uidoc.Selection.GetElementIds()
 Don't use DisplayUnitType
 Don't use BuiltInParameter
+Do not convert units, assume Imperial Units unless otherwise noted
 ```
 Please do not import any libraries in your response beyond those in the following 3 backticks
 ```

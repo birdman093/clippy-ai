@@ -1,6 +1,73 @@
-<!doctype html public "-//w3c//dtd html 4.01 transitional//en" "http://www.w3.org/tr/html4/loose.dtd"><head><meta http-equiv="x-ua-compatible" content="ie=edge" /><meta http-equiv="content-type" content="text/html; charset=utf-8" /><meta name="appversion" content="4.8.13.23182" /><meta name="rendererversion" content="11.0.22621.2428" /><link rel="stylesheet" href="file:///c:\programdata\pyrevit\main\main\pyrevitlib\pyrevit\output\outputstyles.css"></head><html><body><div class="entry"></div><div class="entry">('Message', 'Query hitting')</div><div class="entry">
-</div><div class="entry">&lt;user_interface.Custom_Window_State instance at 0x0000000000002148&gt;</div><div class="entry">
+<!doctype html public "-//w3c//dtd html 4.01 transitional//en" "http://www.w3.org/tr/html4/loose.dtd"><head><meta http-equiv="x-ua-compatible" content="ie=edge" /><meta http-equiv="content-type" content="text/html; charset=utf-8" /><meta name="appversion" content="4.8.13.23182" /><meta name="rendererversion" content="11.0.19041.3570" /><link rel="stylesheet" href="file:///c:\program files\pyrevit-master\pyrevitlib\pyrevit\output\outputstyles.css"></head><html><body><div class="entry"></div><div class="entry">('Message', 'Query hitting')</div><div class="entry">
+</div><div class="entry">&lt;user_interface.Custom_Window_State instance at 0x00000000000004DA&gt;</div><div class="entry">
 </div><div class="entry">Query hitting
 <br>Test</div><div class="entry">
-</div><div class="entry">('Info', 'Sending data to server: {"client": "how many sheet is in my file?. ."}')</div><div class="entry">
+</div><div class="entry">('Info', 'Sending data to server: {"client": "Find all the walls in the model and return the total length of the walls. ."}')</div><div class="entry">
+</div><div class="entry">('Code response: ', 'clr.AddReference(\'RevitAPI\')\nclr.AddReference(\'RevitAPIUI\')\nfrom Autodesk.Revit.DB import FilteredElementCollector, BuiltInCategory\nfrom Autodesk.Revit.DB import UnitUtils, DisplayUnitType\n\nuidoc = __revit__.ActiveUIDocument\ndoc = uidoc.Document\n\n# Collect all the walls in the model\nwalls = FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Walls).WhereElementIsNotElementType().ToElements()\n\n# Initialize total length\ntotal_length = 0.0\n\n# Iterate through each wall and add up the lengths\nfor wall in walls:\n    total_length += wall.LookupParameter("Length").AsDouble()\n\n# Convert the length from internal units(feet) to the project\'s units\ntotal_length = UnitUtils.ConvertFromInternalUnits(total_length, DisplayUnitType.DUT_METERS)\n\n# Print the total length of the walls\nprint("Total length of all walls: " + str(total_length) + " meters")')</div><div class="entry">
+</div><div class="entry">Total length of all walls: 10.5156003365 meters</div><div class="entry">
+</div><div class="entry">Query hitting
+<br>Test
+<br>clr.AddReference('RevitAPI')
+<br>clr.AddReference('RevitAPIUI')
+<br>from Autodesk.Revit.DB import FilteredElementCollector, BuiltInCategory
+<br>from Autodesk.Revit.DB import UnitUtils, DisplayUnitType
+<br>
+<br>uidoc = __revit__.ActiveUIDocument
+<br>doc = uidoc.Document
+<br>
+<br># Collect all the walls in the model
+<br>walls = FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Walls).WhereElementIsNotElementType().ToElements()
+<br>
+<br># Initialize total length
+<br>total_length = 0.0
+<br>
+<br># Iterate through each wall and add up the lengths
+<br>for wall in walls:
+<br>    total_length += wall.LookupParameter("Length").AsDouble()
+<br>
+<br># Convert the length from internal units(feet) to the project's units
+<br>total_length = UnitUtils.ConvertFromInternalUnits(total_length, DisplayUnitType.DUT_METERS)
+<br>
+<br># Print the total length of the walls
+<br>print("Total length of all walls: " + str(total_length) + " meters")
+</div><div class="entry">
+</div><div class="entry">('Message', 'Query hitting')</div><div class="entry">
+</div><div class="entry">&lt;user_interface.Custom_Window_State instance at 0x00000000000004DB&gt;</div><div class="entry">
+</div><div class="entry">Query hitting
+<br>Test</div><div class="entry">
+</div><div class="entry">('Info', 'Sending data to server: {"client": "Find all the walls in the model and delete them . ."}')</div><div class="entry">
+</div><div class="entry">('Code response: ', "import clr\nclr.AddReference('RevitAPI')\nclr.AddReference('RevitAPIUI')\nfrom Autodesk.Revit.DB import FilteredElementCollector, BuiltInCategory, Transaction\nfrom Autodesk.Revit.UI import TaskDialog\n\ndoc = __revit__.ActiveUIDocument.Document\n\n# Collect all the walls in the model\nwalls = FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Walls).WhereElementIsNotElementType().ToElements()\n\n# Start a new transaction\nt = Transaction(doc, 'Delete all walls')\nt.Start()\n\n# Delete all the walls\nfor wall in walls:\n    doc.Delete(wall.Id)\n\n# Commit the transaction\nt.Commit()\n\n# Show a dialog to inform the user\nTaskDialog.Show('Delete Walls', 'All walls have been deleted.')")</div><div class="entry">
+</div><div class="entry">Query hitting
+<br>Test
+<br>import clr
+<br>clr.AddReference('RevitAPI')
+<br>clr.AddReference('RevitAPIUI')
+<br>from Autodesk.Revit.DB import FilteredElementCollector, BuiltInCategory, Transaction
+<br>from Autodesk.Revit.UI import TaskDialog
+<br>
+<br>doc = __revit__.ActiveUIDocument.Document
+<br>
+<br># Collect all the walls in the model
+<br>walls = FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Walls).WhereElementIsNotElementType().ToElements()
+<br>
+<br># Start a new transaction
+<br>t = Transaction(doc, 'Delete all walls')
+<br>t.Start()
+<br>
+<br># Delete all the walls
+<br>for wall in walls:
+<br>    doc.Delete(wall.Id)
+<br>
+<br># Commit the transaction
+<br>t.Commit()
+<br>
+<br># Show a dialog to inform the user
+<br>TaskDialog.Show('Delete Walls', 'All walls have been deleted.')
+</div><div class="entry">
+</div><div class="entry">('Message', 'Query hitting')</div><div class="entry">
+</div><div class="entry">&lt;user_interface.Custom_Window_State instance at 0x00000000000004DC&gt;</div><div class="entry">
+</div><div class="entry">Query hitting
+<br>Test</div><div class="entry">
+</div><div class="entry">('Info', 'Sending data to server: {"client": "Find all the walls in the model and delete them . ."}')</div><div class="entry">
+</div><div class="entry">('Code response: ', "clr.AddReference('RevitAPI')\nclr.AddReference('RevitAPIUI')\nfrom Autodesk.Revit.DB import FilteredElementCollector, BuiltInCategory, Transaction\nfrom Autodesk.Revit.UI import TaskDialog\n\ndoc = __revit__.ActiveUIDocument.Document\nuidoc = __revit__.ActiveUIDocument\n\n# Collect all the walls in the model\nwalls = FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Walls).WhereElementIsNotElementType().ToElements()\n\n# Start a new transaction\nt = Transaction(doc, 'Delete all walls')\nt.Start()\n\n# Delete all the walls\nfor wall in walls:\n    doc.Delete(wall.Id)\n\nt.Commit()\n\nTaskDialog.Show('Delete Walls', 'All walls have been deleted.')")</div><div class="entry">
 </div></body></html>

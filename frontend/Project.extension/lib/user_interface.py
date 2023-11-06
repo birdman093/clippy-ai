@@ -299,7 +299,7 @@ def query_chat_gpt(window):
         # handle the exception
         window.logger.error("An exception occurred:", error) # An exception occurred: division by zero
 
-    max_attempts = 3
+    max_attempts = 10
     counter = 1
     context = ""
     url = 'http://127.0.0.1:8080/'
@@ -326,7 +326,7 @@ def query_chat_gpt(window):
 
             clean_code = clean_code_snippet(responseString)
             print("Code response: ", clean_code)
-            state.data.append("Code response: ", clean_code)
+            state.data.append(("Code response: ", clean_code))
             exec(clean_code)
 
             x = ('successful', '')
