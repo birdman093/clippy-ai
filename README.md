@@ -18,7 +18,7 @@
   <p align="center">
     OpenAI inside Autodesk Revit
     <br />
-    <a href="https://github.com/rfeathers068/clippy-ai/Clippy.gif">View Demo</a>
+    <a href="https://github.com/rfeathers068/clippy-ai/blob/main/Clippy.gif">View Demo</a>
   </p>
 </div>
 
