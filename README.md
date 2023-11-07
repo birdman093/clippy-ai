@@ -18,7 +18,7 @@
   <p align="center">
     OpenAI inside Autodesk Revit
     <br />
-    <a href="https://github.com/rfeathers068/clippy-ai/demo.gif">View Demo</a>
+    <a href="https://github.com/rfeathers068/clippy-ai/Clippy.gif">View Demo</a>
   </p>
 </div>
 
@@ -27,15 +27,16 @@
   <summary>Table of Contents</summary>
   <ol>
     <li><a href="#about-the-project">About The Project</a></li>
+    <li><a href="#workflow-overview">Workflow Overview</a></li>
     <li><a href="#technologies">Technologies</a></li>
     <li><a href="#building-clippy-ai">Building Clippy-AI</a></li>
-    <li><a href="#workflow-overview">Workflow Overview</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
+
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
@@ -49,6 +50,12 @@ Clippy-Ai is an openAI inside Autodesk Revit integration that enables users to m
 * [Peter Zhang](https://github.com/ZMPeterZhang)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- WORKFLOW EXAMPLES -->
+## What does it do
+<img src="Clippy.gif"></img>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Technologies
 * Visual Studio 2022
 * WPF
@@ -56,11 +63,13 @@ Clippy-Ai is an openAI inside Autodesk Revit integration that enables users to m
 * RevitPy
 * Flask
 
+<img src="ClippyArch.PNG"></img>
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Developer GETTING STARTED -->
 ## Building Clippy-AI
-Thanks for checking out Clippy-AI!
+Build Clippy-AI yourself!
 
 ### Prerequisites
 You will need the following libraries and/or software installed before getting to the fun!
@@ -79,16 +88,15 @@ You will need the following libraries and/or software installed before getting t
 3. pip install -r requirements.txt
 4. python main.py
 
-<!-- WORKFLOW EXAMPLES -->
-## Workflow Overview
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- ROADMAP -->
-## Roadmap
-- [] Adding in RevitPy Documentation Search and Context
-- [] Hosting Flask Server on Cloud
-- [] Updating Requests from frontend to include OpenAI key
+## Short-Term Roadmap
+
+- [ ] Better Context and Prompting
+    - [ ] Adding in RevitPy Documentation Search and Context
+    - [ ] Learning more and experimenting with prompting (https://www.promptingguide.ai/)
+- [ ] Hosting on Cloud
+    - [ ] Flask Server 
+    - [ ] Updating Requests from frontend to include OpenAI key
 
 See the [open issues](https://github.com/rfeathers068/clippy-ai/issues) for a full list of proposed features (and known issues).
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

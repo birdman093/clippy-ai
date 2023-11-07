@@ -25,4 +25,4 @@ Do not write code if any of the following conditions are met in the following 3 
 MISSING User Prompt - Your explanation of what was missing
 ERROR - User is being rude and said AutoCAD
 ```
-
+Please pause before writing any code and consider if you are following every rule in this list
