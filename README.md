@@ -12,7 +12,7 @@
 <!-- PROJECT LOGO -->
 <div align="center">
   <a href="https://github.com/rfeathers068/clippy-ai">
-    <img src="clippy-ai/ClippyConstruction.gif" alt="Logo" style="max-height: 400px; margin-top: -100px;">
+    <img src="clippy-ai/ClippyConstruction.gif" alt="Logo" height=300px style="margin-top: -100px;">
   </a>
 
   <p align="center">
